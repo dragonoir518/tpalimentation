@@ -243,9 +243,10 @@ alim_nom_sci,
 aliment_groupe_alim_grp_code,
 aliment_sous_groupe_alim_ss_grp_code,
 aliment_sous_sous_groupe_alim_ss_ss_grp_code,
+composition_acides_gras_composition_acides_gras_code,
 composition_autres_composition_autres_code,
 composition_energie_composition_energie_code,
 composition_vitamine_composition_vitamine_code)
 select alim_code, alim_nom_fr, alim_nom_sci,alim_grp_code,alim_ssgrp_code,alim_ssssgrp_code,
 energie_code,energie_code,energie_code,energie_code
-from public.alimentation_source_nettoyage
+from public.alimentation_source_nettoyage;

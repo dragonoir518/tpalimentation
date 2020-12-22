@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootTest
-@ComponentScan(basePackages = { "com.epita.tpalimentation.infrastructure" }, lazyInit = true)
+//@ComponentScan(basePackages = { "com.epita.tpalimentation.infrastructure" }, lazyInit = true)
 @EntityScan(basePackages = { "com.epita.tpalimentation.domaine.entity" })
-@EnableJpaRepositories
+//@EnableJpaRepositories
 class AlimentationApplicationTests {
 
     @Test

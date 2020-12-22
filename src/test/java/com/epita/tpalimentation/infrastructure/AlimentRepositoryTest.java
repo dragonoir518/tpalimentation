@@ -1,6 +1,7 @@
 package com.epita.tpalimentation.infrastructure;
 
 import com.epita.tpalimentation.domaine.entity.Aliment;
+import com.epita.tpalimentation.domaine.entity.AlimentGroupe;
 import com.epita.tpalimentation.exceptions.NotFoundException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,5 +50,41 @@ public class AlimentRepositoryTest {
 
         //Then
         assertThat(exception).isNotNull();
+    }
+
+    @Test
+    public void save_Aliment_Should_be_Success() throws NotFoundException {
+
+        //Given
+        Aliment aliment = new Aliment();
+        aliment.setAlimCode("888888");
+        aliment.setAlimNomFr("Test aliment");
+        aliment.setAlimNomSci("Test Nom SCI");
+
+        AlimentGroupe groupe = new AlimentGroupe();
+        groupe.setAlimGrpCode("99");
+        groupe.setAlimGrpNomFr("test Group");
+
+        aliment.setAlimentGroupe(groupe);
+
+
+        //When
+        alimentRepository.saveAliment(aliment);
+
+        //Then
+        assertThat(alimentRepository.getAlimentByCode(aliment.getAlimCode())).isNotNull();
+
+    }
+
+    @Test
+    public void soulde_return_aAliment_with_max_Calcium() {
+        //Given
+
+        //When
+        Aliment aliment = alimentRepository.getAlimentMaxCalcium();
+
+        //Then
+        assertThat(aliment).isNotNull();
+
     }
 }
