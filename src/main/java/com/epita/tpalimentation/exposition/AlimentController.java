@@ -38,17 +38,17 @@ public class AlimentController {
     @GetMapping(value="/aliment/{alimCode}", produces = {"application/json"})
     public AlimentDTO getAlimentByCode(@PathVariable("alimCode") final String alimCode)  {
 
-        Aliment aliment = null;
-        try {
-            aliment = alimentService.getAlimentByAlimCodeService(alimCode);
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        }
+      try {
+              Aliment aliment = alimentService.getAlimentByAlimCodeService(alimCode);
 
-        AlimentDTO alimentDTO = alimentMapper.mapToDto(aliment);
+              AlimentDTO alimentDTO = alimentMapper.mapToDto(aliment);
 
-        alimentDTO.toString();
-        return  alimentDTO;
+             return alimentDTO;
+
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        return null;
     }
 
 

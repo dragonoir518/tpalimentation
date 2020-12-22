@@ -9,7 +9,10 @@ public interface AlimentJpaRepository extends JpaRepository<Aliment,String> {
 
     @Query(nativeQuery = true, value =
             "select * from aliment a where a.composition_autres_composition_autres_code = " +
-                    "                           (select max(composition_autres_code) from composition_autres)"
+                    "                           (select composition_autres_code\n" +
+                    "                            from public.composition_autres \n" +
+                    "                            where calcium = (select max(calcium)\n" +
+                    "                            from public.composition_autres))"
           )
     Aliment findByWhatever();
 }

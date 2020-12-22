@@ -1,0 +1,11 @@
+insert into alim_groupe(alim_grp_code,alim_grp_nom_fr) values ('04','viandes, œufs, poissons et assimilés');
+insert into alim_groupe(alim_grp_code,alim_grp_nom_fr) values ('10','aides culinaires et ingrédients divers');
+insert into alim_ssgroupe(alim_ss_grp_code,alim_ss_grp_nom_fr) values ('1004','céréales et biscuits infantiles');
+insert into alim_ssgroupe(alim_ss_grp_code,alim_ss_grp_nom_fr) values ('0408','mollusques et crustacés crus');
+insert into alim_ssssgroupe(alim_ss_ss_grp_code,alim_ss_ss_grp_nom_fr) values ('000000',' ');
+insert into composition_acides_gras (composition_acides_gras_code, acides_gras_alpha_linolenique,acides_gras_arachidonique,acides_gras_butyrique,acides_gras_caprique,acides_gras_caproique,acides_gras_caprylique,acides_grasdha,acides_grasepa,acides_gras_laurique,acides_gras_linoleique,acides_gras_monoinsatures,acides_gras_myristique,acides_gras_oleique,acides_gras_palmitique,acides_gras_polyinsatures,acides_gras_satures,acides_gras_stearique,acides_grasnesium,acides_organiques) values(3043,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ');
+insert into composition_autres values (3043,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ');
+insert into composition_energie values (3043, ' ',' ',' ',' ');
+insert into composition_vitamine values (3043, ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ');
+insert into aliment values ('10001','Calmar ou calamar ou encornet cru','Loligo vulgaris','04','0408','000000',3043,3043,3043,3043);
+insert into aliment values ('11083','Sel marin gris non iodé non fluoré',' ','10','1004','000000',3043,3043,3043,3043);

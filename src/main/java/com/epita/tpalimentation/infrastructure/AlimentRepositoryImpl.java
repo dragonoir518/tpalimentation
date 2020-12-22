@@ -4,7 +4,6 @@ import com.epita.tpalimentation.domaine.entity.Aliment;
 import com.epita.tpalimentation.exceptions.NotFoundException;
 import com.epita.tpalimentation.infrastructure.jpaRepository.AlimentJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 

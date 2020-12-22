@@ -193,7 +193,7 @@ energie_n_x_facteur_jones_avec_fibres_kj_100_g,
 energie_reglement_ue_1169_2011_kcal_100_g,
 energie_reglement_ue_1169_2011_kj_100_g
 from public.alimentation_source_nettoyage
-where energie_code <>1 ;
+;
 
 
 
@@ -220,7 +220,7 @@ ag_20_5_5c_8c_11c_14c_17c_n_3_epa_g_100_g,ag_12_0_laurique_g_100_g,
 ag_18_2_9c_12c_n_6_linoleique_g_100_g,ag_monoinsatures_g_100_g,
 ag_14_0_myristique_g_100_g
 from public.alimentation_source_nettoyage
-where energie_code <>1 ;
+;
 
 
 insert into public.composition_autres (
@@ -233,9 +233,7 @@ alcool_g_100_g,amidon_g_100_g,calcium_mg_100_g,chlorure_mg_100_g,cholesterol_mg_
 cuivre_mg_100_g,eau_g_100_g,fer_mg_100_g,fructose_g_100_g,glucose_g_100_g,glucides_g_100_g,
 lactose_g_100_g,maltose_g_100_g,lipides_g_100_g,potassium_mg_100_g,sodium_mg_100_g,sucres_g_100_g
 from public.alimentation_source_nettoyage
-where energie_code <>1 ;
-
-
+;
 
 
 insert into aliment (
@@ -248,4 +246,6 @@ aliment_sous_sous_groupe_alim_ss_ss_grp_code,
 composition_autres_composition_autres_code,
 composition_energie_composition_energie_code,
 composition_vitamine_composition_vitamine_code)
-select alim_code, alim_nom_fr, alim_nom_sci,
+select alim_code, alim_nom_fr, alim_nom_sci,alim_grp_code,alim_ssgrp_code,alim_ssssgrp_code,
+energie_code,energie_code,energie_code,energie_code
+from public.alimentation_source_nettoyage
