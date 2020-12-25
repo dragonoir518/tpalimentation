@@ -21,7 +21,6 @@ public class AlimentMapperImpl implements AlimentMapper {
         aliment.setCompositionAcidesGras(dto.getCompositionAcidesGras());
         aliment.setCompositionVitamine(dto.getCompositionVitamine());
 
-
         return aliment;
     }
 

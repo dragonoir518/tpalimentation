@@ -17,11 +17,10 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest(classes = { AlimentServiceImpl.class })
 @SpringBootTest
 public class AlimentServiceTest {
     /* Aliment service a 3 méthodes à tester.
-     * Il faut mocker les méthodes de la couche Infra pour isoler les test
+     * Il faut mocker les méthodes de la couche Infra pour isoler les tests
      */
 
     @Autowired
