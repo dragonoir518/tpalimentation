@@ -14,6 +14,7 @@ public class AlimentServiceImpl implements AlimentService{
 
     @Override
     public void saveAlimentService(Aliment aliment) {
+        System.out.println("dans saveAlimentService");
         alimentRepository.saveAliment(aliment);
     }
 

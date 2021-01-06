@@ -36,19 +36,17 @@ public class AlimentController {
     }
 
     @GetMapping(value="/aliment/{alimCode}", produces = {"application/json"})
-    public AlimentDTO getAlimentByCode(@PathVariable("alimCode") final String alimCode)  {
+    public AlimentDTO getAlimentByCode(@PathVariable("alimCode") final String alimCode) throws NotFoundException {
 
-      try {
               Aliment aliment = alimentService.getAlimentByAlimCodeService(alimCode);
+              if(aliment==null) {
+                  throw new NotFoundException("Aliment n'existe pas=>"+alimCode);
+              }
 
               AlimentDTO alimentDTO = alimentMapper.mapToDto(aliment);
 
              return alimentDTO;
 
-            } catch (NotFoundException e) {
-                e.printStackTrace();
-            }
-        return null;
     }
 
 

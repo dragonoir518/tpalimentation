@@ -18,7 +18,7 @@ import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 
 
 @RunWith(SpringRunner.class)
-//@ExtendWith(SpringExtension.class)
+//@ExtendWith(SpringExtension.class)  //pour basculer vers JUnit 5 jupiter
 @SpringBootTest
 public class AlimentRepositoryTest {
 

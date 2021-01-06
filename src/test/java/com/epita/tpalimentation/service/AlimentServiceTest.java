@@ -7,6 +7,8 @@ import com.epita.tpalimentation.exceptions.NotFoundException;
 import com.epita.tpalimentation.infrastructure.AlimentRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,18 +34,19 @@ public class AlimentServiceTest {
 
     @Test
     public void given_AlimCode_Should_Return_Aliment() throws NotFoundException {
-        //Given
+        //Given *************************************************************************
         String alimCode = "112233";
 
         Aliment aliment = Utils.getAlimentForTest();
 
         //créer le mock alimentRepository pour simuler le comportement AlimentRepository
-        when(alimentRepositoryMock.getAlimentByCode(alimCode)).thenReturn(aliment);
+        Mockito.when(alimentRepositoryMock.getAlimentByCode(alimCode)).thenReturn(aliment);
 
-        //When : tester le comportement de AlimentService
+        //When  *************************************************************************
         Aliment alimentReturn = alimentService.getAlimentByAlimCodeService(alimCode);
 
-        //Then
+
+        //Then  *************************************************************************
         assertThat(alimentReturn).isNotNull();
         assertThat(alimentReturn.getAlimCode()).isEqualTo("112233");
         assertThat(alimentReturn.getAlimNomFr()).isEqualTo("Test aliment");
@@ -53,13 +56,15 @@ public class AlimentServiceTest {
 
     @Test
     public void save_Aliment_Should_Be_Sucess() {
-        //Given
+        //Given *************************************************************************
         Aliment aliment = Utils.getAlimentForTest();
+        //créer le mock alimentRepository pour simuler le comportement AlimentRepository
+        Mockito.doNothing().when(alimentRepositoryMock).saveAliment(aliment);
 
-        //When
+        //When *************************************************************************
         alimentService.saveAlimentService(aliment);
 
-        //Then
+        //Then *************************************************************************
         //vérifier si alimentRepositoryMock est appelé une fois lors de save d'aliment
         verify(alimentRepositoryMock,times(1)).saveAliment(aliment);
 
@@ -69,21 +74,19 @@ public class AlimentServiceTest {
 
     @Test
     public void get_Aliment_With_Max_Calcium_Should_Be_Success() {
-        //Given
+        //Given *************************************************************************
         //Créer Mock
         Aliment aliment = Utils.getAlimentForTest();
-        when(alimentRepositoryMock.getAlimentMaxCalcium()).thenReturn(aliment);
+        Mockito.when(alimentRepositoryMock.getAlimentMaxCalcium()).thenReturn(aliment);
 
-        //When
+        //When *************************************************************************
         Aliment aliment1 = alimentService.getAlimentMaxCalciumService();
 
-        //Then
+        //Then *************************************************************************
         assertThat(aliment1).isNotNull();
         assertThat(aliment1.getAlimCode()).isEqualTo("112233");
         //vérifier on a appelé 1 fois getAlimentMaxCalcium
         verify(alimentRepositoryMock,times(1)).getAlimentMaxCalcium();
-
     }
-
 
 }
