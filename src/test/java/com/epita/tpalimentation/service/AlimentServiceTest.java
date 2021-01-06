@@ -5,7 +5,8 @@ import com.epita.tpalimentation.domaine.entity.Aliment;
 import com.epita.tpalimentation.domaine.entity.AlimentGroupe;
 import com.epita.tpalimentation.exceptions.NotFoundException;
 import com.epita.tpalimentation.infrastructure.AlimentRepository;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -13,12 +14,15 @@ import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.*;
 
-@RunWith(SpringRunner.class)
+
+//@RunWith(SpringRunner.class)      // JUnit 4
+@ExtendWith(SpringExtension.class)  //pour basculer vers JUnit 5 jupiter
 @SpringBootTest
 public class AlimentServiceTest {
     /* Aliment service a 3 méthodes à tester.

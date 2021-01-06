@@ -6,13 +6,15 @@ import com.epita.tpalimentation.domaine.dto.AlimentDTO;
 import com.epita.tpalimentation.domaine.entity.Aliment;
 
 import com.epita.tpalimentation.service.AlimentService;
-import org.junit.Test;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -22,7 +24,9 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
-@RunWith(SpringRunner.class)
+
+//@RunWith(SpringRunner.class)      // JUnit 4
+@ExtendWith(SpringExtension.class)  //pour basculer vers JUnit 5 jupiter
 @SpringBootTest
 @AutoConfigureMockMvc
 //@WebMvcTest(controllers = AlimentController.class)
@@ -63,8 +67,8 @@ public class AlimentControllerTest {
     }
 
 
+
     @Test
-    @Disabled("cas non passant, à refaire")
     public void given_AlimentDTO_Should_Be_Save_InBDD() {
         //Given
         //on a AlimentDTO normalement saisit par User

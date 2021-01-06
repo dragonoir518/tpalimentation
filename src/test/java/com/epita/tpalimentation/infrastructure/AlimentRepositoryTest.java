@@ -3,7 +3,7 @@ package com.epita.tpalimentation.infrastructure;
 import com.epita.tpalimentation.domaine.entity.Aliment;
 import com.epita.tpalimentation.domaine.entity.AlimentGroupe;
 import com.epita.tpalimentation.exceptions.NotFoundException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +17,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.ThrowableAssert.catchThrowable;
 
 
-@RunWith(SpringRunner.class)
-//@ExtendWith(SpringExtension.class)  //pour basculer vers JUnit 5 jupiter
+//@RunWith(SpringRunner.class)      // JUnit 4
+@ExtendWith(SpringExtension.class)  //pour basculer vers JUnit 5 jupiter
 @SpringBootTest
 public class AlimentRepositoryTest {
 
     @Autowired
     private AlimentRepository alimentRepository;
+
 
     @Test
     public void given_AlimCode_Should_Return_Aliment() throws NotFoundException {
@@ -38,6 +39,7 @@ public class AlimentRepositoryTest {
         assertThat(aliment.getAlimCode()).isEqualTo("10001");
 
     }
+
 
     @Test
     public void given_NonValideAlimCode_Should_CatchNotFoundException()  {
@@ -54,6 +56,7 @@ public class AlimentRepositoryTest {
         //Then
         assertThat(exception).isNotNull();
     }
+
 
     @Test
     public void save_Aliment_Should_be_Success() throws NotFoundException {
@@ -79,6 +82,7 @@ public class AlimentRepositoryTest {
 
     }
 
+    //@Test
     @Test
     public void soulde_return_aAliment_with_max_Calcium() {
         //Given
